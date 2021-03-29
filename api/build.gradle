@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+    id 'io.spring.dependency-management' version "1.0.11.RELEASE"
+    id 'org.springframework.boot' version '2.4.4'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':db')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+}
