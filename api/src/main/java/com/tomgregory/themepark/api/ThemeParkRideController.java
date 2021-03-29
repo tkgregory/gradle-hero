@@ -5,7 +5,7 @@ import com.tomgregory.themepark.db.repository.ThemeParkRideRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.Iterator;
 
 @RestController
 public class ThemeParkRideController {
@@ -18,8 +18,7 @@ public class ThemeParkRideController {
     }
 
     @GetMapping(path = "/rides")
-    public List<ThemeParkRide> getRides() {
-return null;
-//        return themeParkRideRepository.findAll();
+    public Iterator<ThemeParkRide> getRides() {
+        return themeParkRideRepository.findAll().iterator();
     }
 }
