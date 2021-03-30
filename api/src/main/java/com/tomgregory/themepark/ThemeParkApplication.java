@@ -16,9 +16,9 @@ public class ThemeParkApplication {
     @Bean
     public CommandLineRunner sampleData(ThemeParkRideRepository repository) {
         return (args) -> {
-            repository.save(new ThemeParkRide("Rollercoaster", "Train ride that speeds you along."));
-            repository.save(new ThemeParkRide("Log flume", "Boat ride with plenty of splashes."));
-            repository.save(new ThemeParkRide("Teacups", "Spinning ride in a giant tea-cup."));
+            repository.save(new ThemeParkRide("Rollercoaster", "Train ride that speeds you along.", "images/rollercoaster.jpg"));
+            repository.save(new ThemeParkRide("Log flume", "Boat ride with plenty of splashes.", "images/log-flume.jpg"));
+            repository.save(new ThemeParkRide("Teacups", "Spinning ride in a giant tea-cup.", "images/teacups.jpg"));
         };
     }
 }
