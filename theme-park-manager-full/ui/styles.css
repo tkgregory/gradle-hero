@@ -41,6 +41,11 @@ h1 {
     font-weight: lighter;
 }
 
+h2 {
+    font-size: 20px;
+    font-weight: 300;
+}
+
 .button, button {
     display: inline-flex;
     align-items: center;
@@ -66,5 +71,5 @@ h1 {
 .container {
     display: flex;
     flex-direction: row;
-    padding: 16px;
+    padding: 8px;
 }
