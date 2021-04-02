@@ -12,6 +12,7 @@ task generateDescriptions(type: Copy) {
 
 task zipDescriptions(type: Zip) {
     from "$buildDir/descriptions/"
-    destinationDir(buildDir)
+    destinationDirectory = buildDir
+    archiveName 'descriptions.zip'
 }
 assemble.dependsOn generateDescriptions
