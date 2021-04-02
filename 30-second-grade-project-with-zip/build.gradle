@@ -1,0 +1,17 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+plugins {
+    id 'base'
+}
+
+task generateDescriptions(type: Copy) {
+    from 'descriptions'
+    into "$buildDir/descriptions"
+    filter(ReplaceTokens, tokens: [THEME_PARK_NAME: "Grelephant's Wonder World"])
+}
+
+task zipDescriptions(type: Zip) {
+    from "$buildDir/descriptions/"
+    destinationDir(buildDir)
+}
+assemble.dependsOn generateDescriptions
