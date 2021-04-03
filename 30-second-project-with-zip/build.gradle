@@ -15,4 +15,3 @@ task zipDescriptions(type: Zip) {
     destinationDirectory = buildDir
     archiveName 'descriptions.zip'
 }
-assemble.dependsOn generateDescriptions
