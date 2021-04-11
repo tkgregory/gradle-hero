@@ -4,13 +4,13 @@ plugins {
     id 'base'
 }
 
-task generateDescriptions(type: Copy) {
+tasks.register('generateDescriptions', Copy) {
     from 'descriptions'
     into "$buildDir/descriptions"
     filter(ReplaceTokens, tokens: [THEME_PARK_NAME: "Grelephant's Wonder World"])
 }
 
-task zipDescriptions(type: Zip) {
+tasks.register('zipDescriptions', Zip) {
     from "$buildDir/descriptions/"
     destinationDirectory = buildDir
     archiveName 'descriptions.zip'
