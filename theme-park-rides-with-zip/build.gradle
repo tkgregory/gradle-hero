@@ -13,5 +13,5 @@ tasks.register('generateDescriptions', Copy) {
 tasks.register('zipDescriptions', Zip) {
     from "$buildDir/descriptions/"
     destinationDirectory = buildDir
-    archiveName 'descriptions.zip'
+    archiveFileName = 'descriptions.zip'
 }
