@@ -5,42 +5,34 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class RideStatusService {
-    private static final Map<String, List<String>> possibleRideStatuses = new HashMap<>();
-
-    public RideStatusService() {
-        possibleRideStatuses.put("rollercoaster", readFile("rollercoaster.txt"));
-        possibleRideStatuses.put("logflume", readFile("logflume.txt"));
-        possibleRideStatuses.put("teacups", readFile("teacups.txt"));
-    }
-
     public static void main(String[] args) {
-        RideStatusService rideStatusService = new RideStatusService();
-
         if (args.length != 1) {
             System.out.println("A single ride name must be passed");
             System.exit(1);
         }
+
         String rideName = args[0];
-        String rideStatus = rideStatusService.getRideStatus(rideName);
+        String rideStatus = getRideStatus(rideName);
 
         System.out.printf("Current status of %s is '%s'%n", rideName, rideStatus);
     }
 
-    public String getRideStatus(String ride) {
+    public static String getRideStatus(String ride) {
         Random random = new Random();
-        if (!possibleRideStatuses.containsKey(ride)) {
-            throw new IllegalArgumentException(String.format("Ride %s not found", ride));
-        }
-        List<String> rideStatuses = possibleRideStatuses.get(ride);
+        List<String> rideStatuses = readFile(String.format("%s.txt", ride));
         return rideStatuses.get(random.nextInt(rideStatuses.size()));
     }
 
-    private List<String> readFile(String filename) {
+    private static List<String> readFile(String filename) {
         InputStream resourceStream = RideStatusService.class.getClassLoader().getResourceAsStream(filename);
-        assert resourceStream != null;
+        if (resourceStream == null) {
+            throw new IllegalArgumentException("Ride not found");
+        }
 
         List<String> result = new ArrayList<>();
         try (BufferedReader bufferedInputStream = new BufferedReader(new InputStreamReader(resourceStream, StandardCharsets.UTF_8))) {
