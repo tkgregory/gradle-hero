@@ -13,6 +13,6 @@ public class Application {
 
         String rideStatus = rideStatusService.getRideStatus(ThemeParkRide.valueOf(rideName.toUpperCase()));
 
-        System.out.println(String.format("Current status of %s is '%s'", rideName, rideStatus));
+        System.out.printf("Current status of %s is '%s'%n", rideName, rideStatus);
     }
 }

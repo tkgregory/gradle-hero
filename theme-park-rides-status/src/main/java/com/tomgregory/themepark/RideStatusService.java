@@ -9,11 +9,11 @@ import static java.util.Arrays.asList;
 
 public class RideStatusService {
 
-    private Map<ThemeParkRide, List<String>> possibleRideStatuses = new HashMap<>();
+    private static final Map<ThemeParkRide, List<String>> possibleRideStatuses = new HashMap<>();
 
-    private List<String> rollercoasterStatuses = asList("at the station", "climbing to the top", "on the precipice", "generating screams");
-    private List<String> logFlumeStatuses = asList("at the station", "climbing to the top", "on the precipice", "soaking passengers");
-    private List<String> teacupStatuses = asList("not spinning", "spinning", "super-spin vomit mode");
+    private static final List<String> rollercoasterStatuses = asList("at the station", "climbing to the top", "on the precipice", "generating screams");
+    private static final List<String> logFlumeStatuses = asList("at the station", "climbing to the top", "on the precipice", "soaking passengers");
+    private static final List<String> teacupStatuses = asList("not spinning", "spinning", "super-spin vomit mode");
 
     public RideStatusService() {
         possibleRideStatuses.put(ThemeParkRide.ROLLERCOASTER, rollercoasterStatuses);
