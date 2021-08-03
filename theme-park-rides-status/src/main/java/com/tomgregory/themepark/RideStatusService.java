@@ -8,17 +8,32 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class RideStatusService {
-
-    private static final Map<ThemeParkRide, List<String>> possibleRideStatuses = new HashMap<>();
+    private static final Map<String, List<String>> possibleRideStatuses = new HashMap<>();
 
     public RideStatusService() {
-        possibleRideStatuses.put(ThemeParkRide.ROLLERCOASTER, readFile("rollercoaster.txt"));
-        possibleRideStatuses.put(ThemeParkRide.LOGFLUME, readFile("logflume.txt"));
-        possibleRideStatuses.put(ThemeParkRide.TEACUPS, readFile("teacups.txt"));
+        possibleRideStatuses.put("rollercoaster", readFile("rollercoaster.txt"));
+        possibleRideStatuses.put("logflume", readFile("logflume.txt"));
+        possibleRideStatuses.put("teacups", readFile("teacups.txt"));
     }
 
-    public String getRideStatus(ThemeParkRide ride) {
+    public static void main(String[] args) {
+        RideStatusService rideStatusService = new RideStatusService();
+
+        if (args.length != 1) {
+            System.out.println("A single ride name must be passed");
+            System.exit(1);
+        }
+        String rideName = args[0];
+        String rideStatus = rideStatusService.getRideStatus(rideName);
+
+        System.out.printf("Current status of %s is '%s'%n", rideName, rideStatus);
+    }
+
+    public String getRideStatus(String ride) {
         Random random = new Random();
+        if (!possibleRideStatuses.containsKey(ride)) {
+            throw new IllegalArgumentException(String.format("Ride %s not found", ride));
+        }
         List<String> rideStatuses = possibleRideStatuses.get(ride);
         return rideStatuses.get(random.nextInt(rideStatuses.size()));
     }
