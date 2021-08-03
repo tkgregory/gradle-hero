@@ -1,29 +1,41 @@
 package com.tomgregory.themepark;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-
-import static java.util.Arrays.asList;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
 
 public class RideStatusService {
 
     private static final Map<ThemeParkRide, List<String>> possibleRideStatuses = new HashMap<>();
 
-    private static final List<String> rollercoasterStatuses = asList("at the station", "climbing to the top", "on the precipice", "generating screams");
-    private static final List<String> logFlumeStatuses = asList("at the station", "climbing to the top", "on the precipice", "soaking passengers");
-    private static final List<String> teacupStatuses = asList("not spinning", "spinning", "super-spin vomit mode");
-
     public RideStatusService() {
-        possibleRideStatuses.put(ThemeParkRide.ROLLERCOASTER, rollercoasterStatuses);
-        possibleRideStatuses.put(ThemeParkRide.LOGFLUME, logFlumeStatuses);
-        possibleRideStatuses.put(ThemeParkRide.TEACUPS, teacupStatuses);
+        possibleRideStatuses.put(ThemeParkRide.ROLLERCOASTER, readFile("rollercoaster.txt"));
+        possibleRideStatuses.put(ThemeParkRide.LOGFLUME, readFile("logflume.txt"));
+        possibleRideStatuses.put(ThemeParkRide.TEACUPS, readFile("teacups.txt"));
     }
 
     public String getRideStatus(ThemeParkRide ride) {
         Random random = new Random();
         List<String> rideStatuses = possibleRideStatuses.get(ride);
         return rideStatuses.get(random.nextInt(rideStatuses.size()));
+    }
+
+    private List<String> readFile(String filename) {
+        InputStream resourceStream = RideStatusService.class.getClassLoader().getResourceAsStream(filename);
+        assert resourceStream != null;
+
+        List<String> result = new ArrayList<>();
+        try (BufferedReader bufferedInputStream = new BufferedReader(new InputStreamReader(resourceStream, StandardCharsets.UTF_8))) {
+            while (bufferedInputStream.ready()) {
+                result.add(bufferedInputStream.readLine());
+            }
+        } catch (IOException exception) {
+            throw new RuntimeException("Couldn't read file", exception);
+        }
+
+        return result;
     }
 }
