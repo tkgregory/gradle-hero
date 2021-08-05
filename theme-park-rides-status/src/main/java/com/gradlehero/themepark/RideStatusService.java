@@ -1,4 +1,4 @@
-package com.tomgregory.themepark;
+package com.gradlehero.themepark;
 
 import org.apache.commons.lang3.StringUtils;
 

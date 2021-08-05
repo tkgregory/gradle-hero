@@ -1,4 +1,4 @@
-package com.tomgregory.themepark;
+package com.gradlehero.themepark;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

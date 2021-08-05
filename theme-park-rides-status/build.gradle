@@ -1,5 +1,6 @@
 plugins {
     id 'application'
+    id 'org.unbroken-dome.test-sets' version '4.0.0'
 }
 
 repositories {
@@ -19,7 +20,7 @@ tasks.named('jar') {
     }
 }
 
-tasks.named('test') {
+tasks.withType(Test).configureEach {
     useJUnitPlatform()
 }
 
@@ -32,4 +33,12 @@ tasks.register('runJar', JavaExec) {
     classpath configurations.runtimeClasspath
     mainClass = 'com.tomgregory.themepark.RideStatusService'
     args ' teacups'
+}
+
+testSets {
+    integrationTest
+}
+
+tasks.named('check') {
+    dependsOn tasks.named('integrationTest')
 }
