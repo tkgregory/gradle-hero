@@ -1,5 +1,7 @@
 package com.tomgregory.themepark;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,7 +19,7 @@ public class RideStatusService {
         }
 
         String rideName = args[0];
-        String rideStatus = getRideStatus(rideName);
+        String rideStatus = getRideStatus(StringUtils.trim(rideName));
 
         System.out.printf("Current status of %s is '%s'%n", rideName, rideStatus);
     }
