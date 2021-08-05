@@ -17,7 +17,7 @@ public class RideStatusServiceTest {
     }
 
     @Test
-    public void unknownRideCauseseFailure() {
+    public void unknownRideCausesFailure() {
         RideStatusService rideStatusService = new RideStatusService();
 
         assertThrows(IllegalArgumentException.class, () -> {
