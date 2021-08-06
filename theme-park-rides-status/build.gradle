@@ -25,7 +25,7 @@ tasks.withType(Test).configureEach {
 }
 
 application {
-    mainClass = 'com.tomgregory.themepark.RideStatusService'
+    mainClass = 'com.gradlehero.themepark.RideStatusService'
 }
 
 tasks.register('runJar', JavaExec) {
