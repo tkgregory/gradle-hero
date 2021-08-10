@@ -1,6 +1,8 @@
 package com.gradlehero.themepark;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,15 +21,16 @@ public class RideStatusService {
         }
 
         String rideName = args[0];
-        String rideStatus = getRideStatus(StringUtils.trim(rideName));
+        Pair<String, String> rideStatus = getRideStatus(rideName);
 
-        System.out.printf("Current status of %s is '%s'%n", rideName, rideStatus);
+        System.out.printf("Current status of %s is '%s'%n", rideStatus.getLeft(), rideStatus.getRight());
     }
 
-    public static String getRideStatus(String ride) {
+    public static Pair<String, String> getRideStatus(String ride) {
         Random random = new Random();
-        List<String> rideStatuses = readFile(String.format("%s.txt", ride));
-        return rideStatuses.get(random.nextInt(rideStatuses.size()));
+        String trimmedRideName = StringUtils.trim(ride);
+        List<String> rideStatuses = readFile(String.format("%s.txt", trimmedRideName));
+        return ImmutablePair.of(trimmedRideName, rideStatuses.get(random.nextInt(rideStatuses.size())));
     }
 
     private static List<String> readFile(String filename) {

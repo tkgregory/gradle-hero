@@ -31,7 +31,7 @@ application {
 tasks.register('runJar', JavaExec) {
     classpath tasks.named('jar').map { it.outputs }
     classpath configurations.runtimeClasspath
-    mainClass = 'com.tomgregory.themepark.RideStatusService'
+    mainClass = 'com.gradlehero.themepark.RideStatusService'
     args ' teacups'
 }
 
