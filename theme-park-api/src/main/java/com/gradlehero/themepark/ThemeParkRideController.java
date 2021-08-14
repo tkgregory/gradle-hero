@@ -1,6 +1,5 @@
-package com.gradlehero.themepark.api;
+package com.gradlehero.themepark;
 
-import com.gradlehero.themepark.entity.ThemeParkRide;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
