@@ -1,4 +1,0 @@
-allprojects {
-    group = "com.tomgregory"
-    version = "1.0"
-}
