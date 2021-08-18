@@ -1,11 +1,3 @@
 plugins {
-    id 'base'
+    id 'java'
 }
-
-task zip(type: Zip) {
-    from './'
-    include 'index.html', 'styles.css', 'images/*'
-    archiveName 'ui.zip'
-    destinationDir(buildDir)
-}
-assemble.dependsOn zip

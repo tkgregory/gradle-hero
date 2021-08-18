@@ -1,7 +1,6 @@
 package com.tomgregory.themepark;
 
 import com.gradlehero.themepark.RideStatusService;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,7 +8,6 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 @RestController
-@CrossOrigin(origins = "*")
 public class ThemeParkRideController {
     @GetMapping(path = "/rides")
     public Iterator<ThemeParkRide> getRides() {
