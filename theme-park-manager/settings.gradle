@@ -1,0 +1,3 @@
+rootProject.name = 'theme-park-manager'
+
+include ':api', ':ui', ':service'
