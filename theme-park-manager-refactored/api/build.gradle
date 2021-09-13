@@ -1,22 +1,11 @@
 plugins {
-    id 'java'
     id 'org.springframework.boot' version "$springBootVersion"
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-}
-
-repositories {
-    mavenCentral()
+    id 'com.gradlehero.themepark-conventions'
 }
 
 dependencies {
     implementation project(':ui')
     implementation project(':service')
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
-    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.7.2'
-}
-
-tasks.withType(Test).configureEach {
-    useJUnitPlatform()
 }
