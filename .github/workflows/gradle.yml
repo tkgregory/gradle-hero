@@ -1,4 +1,4 @@
-name: Android CI
+name: Gradle Hero
 
 on:
   push:
@@ -20,9 +20,9 @@ jobs:
         distribution: 'adopt'
         cache: gradle
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-      working-directory: theme-park-manager
     - name: Build with Gradle
       run: ./gradlew build
       working-directory: theme-park-manager
+    - name: Build with Gradle
+      run: ./gradlew build
+      working-directory: theme-park-manager-refactored
