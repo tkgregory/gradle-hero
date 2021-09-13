@@ -1,6 +1,5 @@
-package com.tomgregory.themepark;
+package com.gradlehero.themepark;
 
-import com.gradlehero.themepark.RideStatusService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
