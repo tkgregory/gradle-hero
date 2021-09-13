@@ -18,6 +18,8 @@ From _Chapter 4: Practical: building a Java project_
 From _Chapter 4: Practical: building Spring Boot applications_
 ### [theme-park-manager](theme-park-manager)
 From _Chapter 5: Practical: creating a multi-project build_
+### [theme-park-manager-refactored](theme-park-manager-refactored)
+From _Chapter 5: Practical: buildSrc and convention plugins_ and _Creating custom tasks_
 
 ## How to use these projects
 
