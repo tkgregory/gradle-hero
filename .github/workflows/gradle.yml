@@ -22,7 +22,25 @@ jobs:
 
     - name: Build with Gradle
       run: ./gradlew build
+      working-directory: theme-park-api
+    - name: Build with Gradle
+      run: ./gradlew build
       working-directory: theme-park-manager
     - name: Build with Gradle
       run: ./gradlew build
       working-directory: theme-park-manager-refactored
+    - name: Build with Gradle
+      run: ./gradlew gD
+      working-directory: theme-park-rides
+    - name: Build with Gradle
+      run: ./gradlew gD
+      working-directory: theme-park-rides-kotlin
+    - name: Build with Gradle
+      run: ./gradlew build
+      working-directory: theme-park-rides-status
+    - name: Build with Gradle
+      run: ./gradlew gD zD
+      working-directory: theme-park-rides-with-zip
+    - name: Build with Gradle
+      run: ./gradlew gD zD
+      working-directory: theme-park-rides-with-zip-fixed      
