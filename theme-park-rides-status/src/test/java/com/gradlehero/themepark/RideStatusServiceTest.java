@@ -12,7 +12,7 @@ public class RideStatusServiceTest {
     @ValueSource(strings = {"rollercoaster", "logflume", "teacups"})
     public void getsRideStatus(String ride) {
         RideStatusService rideStatusService = new RideStatusService();
-        String rideStatus = rideStatusService.getRideStatus(ride).getRight();
+        String rideStatus = rideStatusService.getRideStatus(ride);
         assertNotNull(rideStatus);
     }
 
