@@ -1,3 +1,5 @@
+[![Gradle Hero](gradle-hero.png)](https://learn.tomgregory.com/courses/gradle-hero)
+
 Sample Gradle projects accompanying [Gradle Hero](https://learn.tomgregory.com/courses/gradle-hero) course.
 
 ## Contents
