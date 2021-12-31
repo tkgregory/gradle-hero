@@ -2,14 +2,13 @@ plugins {
     id 'java-library'
 }
 
-// the following task generates zip for lesson "Practical: creating a multi-project build" so can be ignored
-tasks.register('uiZip', Zip) {
+// the following task generates downloadable for lesson "Practical: creating a multi-project build" so can be ignored
+tasks.register('downloadable', Copy) {
     from parent.layout.projectDirectory
     include "${project.name}/build.gradle"
     include "${project.name}/src/**"
-    destinationDirectory = layout.buildDirectory
-    archiveFileName = 'ui.zip'
+    into layout.buildDirectory.dir('course-downloadable')
 }
 tasks.named('build').configure {
-    dependsOn tasks.named('uiZip')
+    dependsOn tasks.named('downloadable')
 }

@@ -39,8 +39,8 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew gD zD
       working-directory: theme-park-rides-with-zip-fixed
-    - name: Archive ui.zip
+    - name: Archive UI
       uses: actions/upload-artifact@v2
       with:
-        name: ui.zip
-        path: theme-park-manager/ui/build/ui.zip
+        name: ui
+        path: theme-park-manager/ui/build/course-downloadable
