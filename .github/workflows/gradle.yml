@@ -1,16 +1,12 @@
 name: Gradle Hero
-
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: set up JDK 16
@@ -19,7 +15,6 @@ jobs:
         java-version: '16'
         distribution: 'adopt'
         cache: gradle
-
     - name: Build with Gradle
       run: ./gradlew build
       working-directory: theme-park-api
@@ -43,4 +38,9 @@ jobs:
       working-directory: theme-park-rides-with-zip
     - name: Build with Gradle
       run: ./gradlew gD zD
-      working-directory: theme-park-rides-with-zip-fixed      
+      working-directory: theme-park-rides-with-zip-fixed
+    - name: Archive ui.zip
+      uses: actions/upload-artifact@v2
+      with:
+        name: ui.zip
+        path: theme-park-manager/ui/build/ui.zip
