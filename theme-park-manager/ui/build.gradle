@@ -9,6 +9,6 @@ tasks.register('downloadable', Copy) {
     include "${project.name}/src/**"
     into layout.buildDirectory.dir('course-downloadable')
 }
-tasks.named('build').configure {
+tasks.named('assemble').configure {
     dependsOn tasks.named('downloadable')
 }
