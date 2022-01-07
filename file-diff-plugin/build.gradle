@@ -1,0 +1,28 @@
+plugins {
+    id 'groovy-gradle-plugin'
+    id 'maven-publish'
+}
+
+group = 'com.gradlehero'
+version = '0.1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.spockframework:spock-core:2.0-groovy-3.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+gradlePlugin {
+    plugins {
+        fileDiff {
+            id = 'com.gradlehero.file-diff'
+            implementationClass = 'com.gradlehero.FileDiffPlugin'
+        }
+    }
+}
