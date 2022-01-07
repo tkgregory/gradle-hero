@@ -22,6 +22,8 @@ From _Chapter 4: Practical: building Spring Boot applications_
 From _Chapter 5: Practical: creating a multi-project build_
 ### [theme-park-manager-refactored](theme-park-manager-refactored)
 From _Chapter 5: Practical: buildSrc and convention plugins_ and _Creating custom tasks_
+### [file-diff-plugin](file-diff-plugin)
+From _Chapter 5: Creating custom plugins_, _Sharing custom plugins_, and _Testing custom plugins_
 
 ## How to use these projects
 
