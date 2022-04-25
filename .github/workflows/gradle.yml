@@ -42,6 +42,9 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
       working-directory: file-diff-plugin
+    - name: Build with Gradle
+      run: ./gradlew build
+      working-directory: gradle-in-the-real-world/code-coverage
     - name: Archive UI
       uses: actions/upload-artifact@v2
       with:

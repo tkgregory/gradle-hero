@@ -24,6 +24,8 @@ From _Chapter 5: Practical: creating a multi-project build_
 From _Chapter 5: Practical: buildSrc and convention plugins_ and _Creating custom tasks_
 ### [file-diff-plugin](file-diff-plugin)
 From _Chapter 5: Creating custom plugins_, _Sharing custom plugins_, and _Testing custom plugins_
+### [gradle-in-the-real-world/code-coverage](gradle-in-the-real-world/code-coverage)
+From _Chapter 6: Code coverage analysis with Jacoco_
 
 ## How to use these projects
 

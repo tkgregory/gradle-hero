@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+}
+
+repositories {
+    mavenCentral()
+}
+
+testing {
+    suites {
+        test {
+            useJUnitJupiter()
+        }
+    }
+}
+
+tasks.named('jacocoTestReport') {
+    dependsOn test
+}
+
+tasks.named('jacocoTestCoverageVerification') {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.7
+            }
+        }
+    }
+    dependsOn test
+}
+
+tasks.named('check') {
+    dependsOn jacocoTestCoverageVerification
+}
