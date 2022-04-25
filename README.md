@@ -26,6 +26,8 @@ From _Chapter 5: Practical: buildSrc and convention plugins_ and _Creating custo
 From _Chapter 5: Creating custom plugins_, _Sharing custom plugins_, and _Testing custom plugins_
 ### [gradle-in-the-real-world/code-coverage](gradle-in-the-real-world/code-coverage)
 From _Chapter 6: Code coverage analysis with Jacoco_
+### [gradle-in-the-real-world/code-style](gradle-in-the-real-world/code-style)
+From _Chapter 6: Code style validation with checkstyle_
 
 ## How to use these projects
 
