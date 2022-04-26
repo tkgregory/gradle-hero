@@ -28,6 +28,8 @@ From _Chapter 5: Creating custom plugins_, _Sharing custom plugins_, and _Testin
 From _Chapter 6: Code coverage analysis with Jacoco_
 ### [gradle-in-the-real-world/code-style](gradle-in-the-real-world/code-style)
 From _Chapter 6: Code style validation with checkstyle_
+### [gradle-in-the-real-world/code-quality](gradle-in-the-real-world/code-quality)
+From _Chapter 6: Code quality validation with PMD_
 
 ## How to use these projects
 

@@ -48,6 +48,9 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew assemble # deliberately not running check
       working-directory: gradle-in-the-real-world/code-style
+    - name: Build with Gradle
+      run: ./gradlew assemble # deliberately not running check
+      working-directory: gradle-in-the-real-world/code-quality
     - name: Archive UI
       uses: actions/upload-artifact@v2
       with:

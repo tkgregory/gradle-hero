@@ -1,0 +1,13 @@
+plugins {
+    id 'java'
+    id 'pmd'
+}
+
+repositories {
+    mavenCentral()
+}
+
+pmd {
+    ruleSets = ['category/java/bestpractices.xml', 'category/java/codestyle.xml']
+    ruleSetFiles = files('pmd-rules.xml')
+}
