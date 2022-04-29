@@ -30,6 +30,8 @@ From _Real world Gradle: Code coverage analysis with Jacoco_
 From _Real world Gradle: Code style validation with checkstyle_
 ### [gradle-in-the-real-world/code-quality](gradle-in-the-real-world/code-quality)
 From _Real world Gradle: Code quality validation with PMD_
+### [gradle-in-the-real-world/docker-image](gradle-in-the-real-world/docker-image)
+From _Real world Gradle: Build and push Docker images_
 
 ## How to use these projects
 

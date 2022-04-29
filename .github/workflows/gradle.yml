@@ -51,6 +51,9 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew assemble # deliberately not running check
       working-directory: gradle-in-the-real-world/code-quality
+    - name: Build with Gradle
+      run: ./gradlew buildImage
+      working-directory: gradle-in-the-real-world/docker-image
     - name: Archive UI
       uses: actions/upload-artifact@v2
       with:

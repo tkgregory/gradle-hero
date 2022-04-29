@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.6.7'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+}
+
+tasks.named("bootBuildImage") {
+    imageName = 'public.ecr.aws/m0w6p3h8/docker-in-gradle:latest'
+    docker {
+        publishRegistry {
+            username = 'AWS'
+            password = project.property('dockerPassword')
+        }
+    }
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
