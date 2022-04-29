@@ -13,13 +13,7 @@ dependencies {
 }
 
 tasks.named("bootBuildImage") {
-    imageName = 'public.ecr.aws/m0w6p3h8/docker-in-gradle:latest'
-    docker {
-        publishRegistry {
-            username = 'AWS'
-            password = project.property('dockerPassword')
-        }
-    }
+    imageName = 'docker-in-gradle:latest'
 }
 
 java {
