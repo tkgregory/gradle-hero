@@ -52,7 +52,7 @@ jobs:
       run: ./gradlew assemble # deliberately not running check
       working-directory: gradle-in-the-real-world/code-quality
     - name: Build with Gradle
-      run: ./gradlew buildImage
+      run: ./gradlew bootBuildImage
       working-directory: gradle-in-the-real-world/docker-image
     - name: Archive UI
       uses: actions/upload-artifact@v2
