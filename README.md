@@ -1,3 +1,5 @@
+[![Gradle Hero](https://github.com/tkgregory/gradle-hero/actions/workflows/gradle.yml/badge.svg)](https://github.com/tkgregory/gradle-hero/actions/workflows/gradle.yml)
+
 [![Gradle Hero](gradle-hero.png)](https://learn.tomgregory.com/courses/gradle-hero)
 
 Sample Gradle projects accompanying [Gradle Hero](https://learn.tomgregory.com/courses/gradle-hero) course.
