@@ -5,6 +5,6 @@ plugins {
 }
 
 tasks.register('fileDiff', FileDiffTask) {
-    file1 = file('src/main/resources/static/images/teacups.jpg')
+    file1 = file('src/main/resources/static/images/rollercoaster.jpg')
     file2 = file('src/main/resources/static/images/logflume.jpg')
 }
