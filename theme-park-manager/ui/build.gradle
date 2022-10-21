@@ -14,7 +14,7 @@ tasks.register('downloadableZip', Zip) {
     from parent.layout.projectDirectory
     include "${project.name}/build.gradle"
     include "${project.name}/src/**"
-    archiveName = 'course-downloadable.zip'
+    archiveName = 'ui.zip'
     destinationDirectory = layout.buildDirectory
 }
 
