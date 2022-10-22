@@ -16,6 +16,13 @@ Resources:
       PublicAccessBlockConfiguration:
         BlockPublicAcls: true
         IgnorePublicAcls: true
+      LifecycleConfiguration:
+        Rules:
+          - Id: ExpireNoncurrentVersionsRule
+            Status: Enabled
+            NoncurrentVersionExpiration:
+              NewerNoncurrentVersions: 5
+              NoncurrentDays: 1
   PublicAccessBucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
