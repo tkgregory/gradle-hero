@@ -40,3 +40,7 @@ From _Real world Gradle: Build and push Docker images_
 Each directory is a completely separate Gradle project. 
 
 Import it into your IDE of choice or run directly from the command line, as per the course lesson. 
+
+## Accompanying resources
+
+For _Chapter 5_'s multi-project practical, please download [ui.zip](https://gradle-hero.s3.eu-west-1.amazonaws.com/ui.zip).
