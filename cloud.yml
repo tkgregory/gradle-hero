@@ -1,0 +1,60 @@
+Parameters:
+  S3BucketName:
+    Type: String
+    Default: gradle-hero
+  GitHubRepository:
+    Type: String
+    Default: tkgregory/gradle-hero
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    Properties:
+      BucketName: !Ref S3BucketName
+      VersioningConfiguration:
+        Status: Enabled
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        IgnorePublicAcls: true
+  PublicAccessBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref S3Bucket
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Action:
+              - s3:GetObject
+            Effect: Allow
+            Resource: !Sub 'arn:aws:s3:::${S3Bucket}/*'
+            Principal: '*'
+  Role:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Action: sts:AssumeRoleWithWebIdentity
+            Principal:
+              Federated: !ImportValue GithubOidc
+            Condition:
+              StringLike:
+                token.actions.githubusercontent.com:sub: !Sub 'repo:${GitHubRepository}:*'
+              ForAllValues:StringEquals:
+                token.actions.githubusercontent.com:iss: https://token.actions.githubusercontent.com
+                token.actions.githubusercontent.com:aud: sts.amazonaws.com
+          - Effect: Allow
+            Action: sts:AssumeRole
+            Principal:
+              AWS: 299404798587
+      Policies:
+        - PolicyName: S3WriteAccess
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: s3:PutObject
+                Resource: !Sub 'arn:aws:s3:::${S3Bucket}/*'
+Outputs:
+  Role:
+    Value: !GetAtt Role.Arn
