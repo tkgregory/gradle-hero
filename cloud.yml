@@ -5,6 +5,9 @@ Parameters:
   GitHubRepository:
     Type: String
     Default: tkgregory/gradle-hero
+  AcmCertificateArn:
+    Type: String
+    Default: arn:aws:acm:us-east-1:299404798587:certificate/67f9017d-92fb-4ac5-8348-d5eed690e5fd
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
@@ -35,6 +38,35 @@ Resources:
             Effect: Allow
             Resource: !Sub 'arn:aws:s3:::${S3Bucket}/*'
             Principal: '*'
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Origins:
+          - Id: S3Origin
+            DomainName: !Sub '${S3Bucket}.s3.amazonaws.com'
+            S3OriginConfig:
+              OriginAccessIdentity: ''
+        Aliases:
+          - !Sub '${S3BucketName}.tomgregory.com'
+        ViewerCertificate:
+          AcmCertificateArn: !Ref AcmCertificateArn
+          SslSupportMethod: sni-only
+        DefaultCacheBehavior:
+          TargetOriginId: S3Origin
+          ViewerProtocolPolicy: redirect-to-https
+          ForwardedValues:
+            QueryString: false
+        Enabled: true
+  DNSRecord:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !ImportValue TomGregorySiteHostedZoneId
+      Name: !Sub '${S3BucketName}.tomgregory.com'
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt CloudFrontDistribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2
   Role:
     Type: AWS::IAM::Role
     Properties:
