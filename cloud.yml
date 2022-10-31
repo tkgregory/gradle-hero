@@ -43,7 +43,7 @@ Resources:
           - Effect: Allow
             Action: sts:AssumeRoleWithWebIdentity
             Principal:
-              Federated: arn:aws:iam::299404798587:oidc-provider/token.actions.githubusercontent.com
+              Federated: !ImportValue GithubOidc
             Condition:
               StringLike:
                 token.actions.githubusercontent.com:sub: !Sub 'repo:${GitHubRepository}:*'
