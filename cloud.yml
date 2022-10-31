@@ -5,9 +5,6 @@ Parameters:
   GitHubRepository:
     Type: String
     Default: tkgregory/gradle-hero
-  AcmCertificateArn:
-    Type: String
-    Default: arn:aws:acm:us-east-1:299404798587:certificate/67f9017d-92fb-4ac5-8348-d5eed690e5fd
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
@@ -50,7 +47,7 @@ Resources:
         Aliases:
           - !Sub '${S3BucketName}.tomgregory.com'
         ViewerCertificate:
-          AcmCertificateArn: !Ref AcmCertificateArn
+          AcmCertificateArn: !ImportValue TomGregoryCertificate
           SslSupportMethod: sni-only
         DefaultCacheBehavior:
           TargetOriginId: S3Origin
