@@ -58,7 +58,7 @@ jobs:
       run: ./gradlew bootBuildImage
       working-directory: gradle-in-the-real-world/docker-image
     - name: Archive UI
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: ui
         path: theme-park-manager/ui/build/course-downloadable
