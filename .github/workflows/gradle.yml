@@ -18,43 +18,43 @@ jobs:
         java-version: '17'
         distribution: 'adopt'
         cache: gradle
-    - name: Build with Gradle
+    - name: Build theme-park-api
       run: ./gradlew build
       working-directory: theme-park-api
-    - name: Build with Gradle
+    - name: Build theme-park-manager
       run: ./gradlew build
       working-directory: theme-park-manager
-    - name: Build with Gradle
+    - name: Build theme-park-manager-refactored
       run: ./gradlew build
       working-directory: theme-park-manager-refactored
-    - name: Build with Gradle
+    - name: Build theme-park-rides
       run: ./gradlew gD
       working-directory: theme-park-rides
-    - name: Build with Gradle
+    - name: Build theme-park-rides-kotlin
       run: ./gradlew gD
       working-directory: theme-park-rides-kotlin
-    - name: Build with Gradle
+    - name: Build theme-park-rides-status
       run: ./gradlew build
       working-directory: theme-park-rides-status
-    - name: Build with Gradle
+    - name: Build theme-park-rides-with-zip
       run: ./gradlew gD zD
       working-directory: theme-park-rides-with-zip
-    - name: Build with Gradle
+    - name: Build theme-park-rides-with-zip-fixed
       run: ./gradlew gD zD
       working-directory: theme-park-rides-with-zip-fixed
-    - name: Build with Gradle
+    - name: Build file-diff-plugin
       run: ./gradlew build
       working-directory: file-diff-plugin
-    - name: Build with Gradle
+    - name: Build gradle-in-the-real-world/code-coverage
       run: ./gradlew build
       working-directory: gradle-in-the-real-world/code-coverage
-    - name: Build with Gradle
+    - name: Build gradle-in-the-real-world/code-style
       run: ./gradlew assemble # deliberately not running check
       working-directory: gradle-in-the-real-world/code-style
-    - name: Build with Gradle
+    - name: Build gradle-in-the-real-world/code-quality
       run: ./gradlew assemble # deliberately not running check
       working-directory: gradle-in-the-real-world/code-quality
-    - name: Build with Gradle
+    - name: Build gradle-in-the-real-world/docker-image
       run: ./gradlew bootBuildImage
       working-directory: gradle-in-the-real-world/docker-image
     - name: Archive UI
