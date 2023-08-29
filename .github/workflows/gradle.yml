@@ -63,13 +63,6 @@ jobs:
         name: ui
         path: theme-park-manager/ui/build/course-downloadable
         retention-days: 180
-    - name: Configure Gradle Build Bible AWS credentials
-      uses: aws-actions/configure-aws-credentials@v2
-      with:
-        role-to-assume: arn:aws:iam::299404798587:role/gradle-build-bible-Role-FATI9KHI61JP
-        aws-region: eu-west-1
-    - name: Copy downloadable to Gradle Build Bible S3 Bucket
-      run: aws s3 cp theme-park-manager/ui/build/ui.zip s3://gradle-build-bible
     - name: Configure Gradle Hero AWS credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:
