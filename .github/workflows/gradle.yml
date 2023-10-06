@@ -69,4 +69,4 @@ jobs:
         role-to-assume: arn:aws:iam::299404798587:role/gradle-hero-website-initial-AssetsS3BucketRole-149Y5H75V3G6Z
         aws-region: eu-west-1
     - name: Copy downloadable to Gradle Hero S3 Bucket
-      run: aws s3 cp theme-park-manager/ui/build/ui.zip s3://gradle-hero-website-assets
+      run: aws s3 cp theme-park-manager/ui/build/ui.zip s3://gradle-hero-website-assets/gradle-hero/
