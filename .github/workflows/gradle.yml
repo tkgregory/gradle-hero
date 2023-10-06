@@ -5,11 +5,8 @@ on:
   pull_request:
     branches: [ master ]
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: write
     steps:
     - uses: actions/checkout@v3
     - name: set up JDK 17
@@ -57,6 +54,17 @@ jobs:
     - name: Build gradle-in-the-real-world/docker-image
       run: ./gradlew bootBuildImage
       working-directory: gradle-in-the-real-world/docker-image
+  release:
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
+    steps:
+    - name: Build theme-park-manager
+      run: ./gradlew build
+      working-directory: theme-park-manager
     - name: Archive UI
       uses: actions/upload-artifact@v3
       with:
