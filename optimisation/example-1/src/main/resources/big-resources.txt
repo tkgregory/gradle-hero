@@ -1,0 +1,1 @@
+Copy big files into the resources directory to see a larger impact on build time.
